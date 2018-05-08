@@ -1,0 +1,43 @@
+group 'be.kunstmaan.beaconpositionning'
+version '1.0-SNAPSHOT'
+
+buildscript {
+    repositories {
+        google()
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.0.1'
+    }
+}
+
+rootProject.allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 27
+
+    defaultConfig {
+        minSdkVersion 16
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    lintOptions {
+        disable 'InvalidPackage'
+    }
+
+}
+
+dependencies {
+    implementation 'org.altbeacon:android-beacon-library:2.13.1'
+    compileOnly 'com.google.firebase:firebase-firestore:16.0.0'
+    compileOnly 'com.google.firebase:firebase-auth:15.1.0'
+}
+
+
